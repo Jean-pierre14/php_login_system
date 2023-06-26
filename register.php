@@ -1,6 +1,12 @@
 <?php require_once "./includes/header.php"?>
 
-<?php 
+
+<div class="container py-5">
+    <div class="row py-5 justify-content-center">
+        <div class="col-md-4 py-5">
+            <div class="card card-body shadow-sm">
+                <h3>Register</h3>
+                <?php 
     if (isset($_POST['register'])) { 
 
     require_once "./db.config.php";
@@ -18,16 +24,16 @@
     $password = password_hash($password, PASSWORD_DEFAULT); 
 
     // Execute the SQL statement 
-    if ($stmt->execute()) { echo "New account created successfully!"; } else { echo "Error: " . $stmt->error; } 
+    if ($stmt->execute()) { 
+        echo '<p class="alert alert-success">New account created successfully!</p>'; 
+    } else { 
+        echo '<p class="alert alert-danger">Error: ' . $stmt->error . '</p>'; 
+    } 
 
     // Close the connection 
-    $stmt->close(); $mysqli->close(); }
+    $stmt->close(); $mysqli->close(); 
+}
 ?>
-<div class="container py-5">
-    <div class="row py-5 justify-content-center">
-        <div class="col-md-4 py-5">
-            <div class="card card-body shadow-sm">
-                <h3>Register</h3>
                 <form action="register.php" method="post">
                     <div class="form-group">
                         <label for="username">Username:</label>

@@ -1,5 +1,9 @@
 <?php require_once "./includes/header.php"?>
-
+<?php
+    if(isset($_SESSION['username'])){
+        header("Location: dashboard.php");
+    }
+?>
 <div class="container py-5">
     <div class="row py-5 justify-content-center align-items-center">
         <div class="col-md-6 py-5">

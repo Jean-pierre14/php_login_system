@@ -1,4 +1,9 @@
-<?php require_once "./includes/header.php";?>
+<?php require_once "./includes/header.php";
+if(!isset($_SESSION['username'])){
+    header("Location: index.php");
+}
+?>
+
 <div class="container py-5">
     <div class="row justify-content-center py-5">
         <div class="col-md-6 py-5">
@@ -7,10 +12,15 @@
                     <span>Welcome to your profile</span>
                     <a href="logout.php" class="btn btn-sm btn-primary">Logout</a>
                 </h3>
-                <p class="d-flex justify-content-between align-items-center">
+                <p class="d-flex my-3 justify-content-between align-items-center">
                     <span>Username:</span>
                     <span><?= $_SESSION['username'];?></span>
                 </p>
+                <p class="d-flex my-3 justify-content-between align-items-center">
+                    <span>Email:</span>
+                    <span><?= $_SESSION['email'];?></span>
+                </p>
+
             </div>
         </div>
     </div>
