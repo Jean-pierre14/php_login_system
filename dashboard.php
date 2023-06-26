@@ -20,7 +20,6 @@ if(!isset($_SESSION['username'])){
                     <span>Email:</span>
                     <span><?= $_SESSION['email'];?></span>
                 </p>
-
             </div>
         </div>
     </div>
